@@ -2,13 +2,13 @@ const puppeteer = require('puppeteer');
 const uuidv4 = require('uuid/v4');
 
 module.exports = {
-    takeScreenShot: function (config, urlNumber) {
+    takeScreenShot: async function (config, urlNumber) {
         let url = config[urlNumber];
         let vp_width = 1920;
         let vp_height = 1080;
         let fileName = config[0]+ '-' + uuidv4() + '.png';
 
-        (async () => {
+        
 
             // 1. Launch the browser
             const browser = await puppeteer.launch({
@@ -32,7 +32,7 @@ module.exports = {
 
             // 5. Log result
             console.log("Screenshot taken for URL: "+config[urlNumber]);
-        })();
+        
 
         return fileName;
     }
