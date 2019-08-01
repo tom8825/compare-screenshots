@@ -1,15 +1,28 @@
+const screenshot = require('./screenshot');
+const compare = require('./compare');
 const readline = require('readline');
-let lable, url1, url2;
+let config = [];
+let fileNames = [];
 
-//lable
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-rl.question('How would you like to label the test?', (answer1) => {
-  lable = answer1;
-  console.log(`Answer: ${lable}`);
+rl.question('Please enter a lable for this test (use \'-\' instead of spaces) : ', (answer1) => {
+  config.push(answer1);
+  rl.question('Please enter the first URL : ', (answer2) => {
+    config.push(answer2);
+    rl.question('Please enter the second URL : ', (answer3) => {
+      config.push(answer3);
+      rl.close();
+      console.log(config);
+      fileNames.push(screenshot.takeScreenShot(config, 1));
+      fileNames.push(screenshot.takeScreenShot(config, 2));
 
-  rl.close();
+      //needs to be ran after the functions above have finished.
+      compare.compareScreenShots(fileNames[0], fileNames[1], config[0]);
+    });
+  });
 });
+
