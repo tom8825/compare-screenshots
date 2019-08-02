@@ -29,7 +29,6 @@ rl.question('Please enter a lable for this test (use \'-\' instead of spaces) : 
       console.log(config);
       fileNames.push(await screenshot.takeScreenShot(config, 1));
       fileNames.push(await screenshot.takeScreenShot(config, 2));
-      //needs to be ran after the functions above have finished.
       compare.compareScreenShots(fileNames[0], fileNames[1], config);
     }));
   });

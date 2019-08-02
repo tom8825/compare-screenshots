@@ -9,7 +9,7 @@ module.exports = {
         let vp_height = 1080;
         let fileName = config[0] + '-' + uuidv4() + '.png';
 
-
+        console.log("Taking screenshot...")
 
         // 1. Launch the browser
         const browser = await puppeteer.launch({
