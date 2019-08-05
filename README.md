@@ -1,3 +1,3 @@
-Visual regression testing tool, influence taken from BBC News / Wraith.
+Visual regression testing tool, inspiration taken from BBC News - Wraith.
 
 Written by Tom Parker
