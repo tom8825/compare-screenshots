@@ -6,7 +6,7 @@ const fs = require('fs');
 
 module.exports = {
     takeRegScreenShot: async function (config) {
-        let url = config[urlNumber];
+        let url = config[1];
         let vp_width = 1920;
         let vp_height = 1080;
         let fileName = config[0] + '-' + uuidv4() + '.png';
@@ -36,7 +36,7 @@ module.exports = {
 
         // 5. Log result
         
-        console.log("Screenshot taken for URL: " + config[urlNumber]);
+        console.log("Screenshot taken for URL: " + config[1]);
 
 
         return fileName;

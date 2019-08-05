@@ -1,11 +1,7 @@
-NOW
-1. create main controller and change functions in other controllers to exports.
-2. finish compareNewToBase() in regression-controller.
-
-FUTURE
 1. change config to a json file instead of a variable.
 2. add resolution options.
 3. add multiple path options.
-4. add html gallery.
 5. add html gui.
-6. json test reporting.
+6. json test reporting with history.
+7. change cli from numbered options to Inquirer.js. 
+            --- mainMenu done.

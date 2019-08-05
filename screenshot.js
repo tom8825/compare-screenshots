@@ -7,7 +7,7 @@ module.exports = {
         let url = config[urlNumber];
         let vp_width = 1920;
         let vp_height = 1080;
-        let fileName = config[0] + '-' + uuidv4() + '.png';
+        let fileName = config[0] + '-' + Date.now() + '.png';
 
         console.log("Taking screenshot...")
 
