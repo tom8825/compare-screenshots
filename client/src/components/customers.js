@@ -5,14 +5,14 @@ class Customers extends Component {
   constructor() {
     super();
     this.state = {
-      customers: []
+      option: []
     };
   }
 
   componentDidMount() {
     fetch('/api/customers')
       .then(res => res.json())
-      .then(customers => this.setState({customers}, () => console.log('Customers fetched...', customers)));
+      .then(option => this.setState({option}, () => console.log('option fetched...', option)));
   }
 
   render() {
@@ -20,8 +20,8 @@ class Customers extends Component {
       <div>
         <h2>Projects</h2>
         <ul>
-        {this.state.customers.map(customer => 
-          <li key={customer.id}>{customer.firstName} {customer.lastName}</li>
+        {this.state.option.map(option => 
+          <li key={option.id}>{option.name}</li>
         )}
         </ul>
       </div>

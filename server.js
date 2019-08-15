@@ -1,20 +1,34 @@
 const express = require('express');
-
+const fs = require("fs");
+const testFolder = "./regression-images/";
 const app = express();
 
 app.get('/api/customers', (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
+    let option = [];
+    let optionNumber = 1;
+    fs.readdir(testFolder, (err, files) => {
+        console.log(files);
+        files.forEach(file => {
+            
+            option.push({
+                id:   optionNumber,
+                name: file
+            });
 
-  res.json(customers);
+            
+            optionNumber++;
+        });
+        console.log(option);
+        res.json(option);
+    });
+
+
+
 });
 
 app.post('/api/post', function (req, res) {
-    res.send('Got a POST request')
-})
+    res.send(() => console.log('test'))
+});
 
 const port = 5000;
 
