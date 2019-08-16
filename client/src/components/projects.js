@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './customers.css';
+import './projects.css';
 
-class Customers extends Component {
+class Projects extends Component {
   constructor() {
     super();
     this.state = {
@@ -10,7 +10,7 @@ class Customers extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/customers')
+    fetch('/api/projects')
       .then(res => res.json())
       .then(option => this.setState({option}, () => console.log('option fetched...', option)));
   }
@@ -21,7 +21,7 @@ class Customers extends Component {
         <h2>Projects</h2>
         <ul>
         {this.state.option.map(option => 
-          <li key={option.id}>{option.name}</li>
+          <li key={option.id}><a href="http://google.com">{option.name}</a></li>
         )}
         </ul>
       </div>
@@ -29,4 +29,4 @@ class Customers extends Component {
   }
 }
 
-export default Customers;
+export default Projects;
