@@ -23,6 +23,23 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#projects {
+  padding: 20px;
+  float: left;
+  min-height: 75vh;
+  border-right: 1px dashed #777;
+}
+
+#project-info {
+  padding: 20px;
+  min-height: 75vh;
+  width: auto;
 }
