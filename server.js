@@ -1,6 +1,6 @@
 const express = require("express");
 const fs = require("fs");
-const testFolder = "./regression-images/";
+const testFolder = "./client/public/regression-projects/";
 const app = express();
 const af = require("./api-functions");
 
@@ -38,6 +38,8 @@ app.post("/api/projects/compare", async function(req, res) {
   await af.compare(projectName, second);
   await res.send("New image comparason for " + projectName);
 });
+
+app.use(express.static("public"));
 
 const port = 5000;
 

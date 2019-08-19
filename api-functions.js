@@ -5,8 +5,10 @@ const dates = Date.now();
 
 module.exports = {
   createNewProject: function(fileName) {
-    if (!fs.existsSync("regression-images/" + fileName)) {
-      fs.mkdirSync("regression-images/" + fileName, function(err) {
+    if (!fs.existsSync("client/public/regression-projects/" + fileName)) {
+      fs.mkdirSync("client/public/regression-projects/" + fileName, function(
+        err
+      ) {
         if (err) {
           console.log(err);
           // echo the result back
@@ -29,8 +31,12 @@ module.exports = {
     let baseNewName = projectname + "-" + dates + ".png";
 
     await fs.rename(
-      "regression-images/" + projectname + "/" + projectname + "-base.png",
-      "regression-images/" + projectname + "/" + baseNewName,
+      "client/public/regression-projects/" +
+        projectname +
+        "/" +
+        projectname +
+        "-base.png",
+      "client/public/regression-projects/" + projectname + "/" + baseNewName,
       function(err) {
         if (err) console.log("ERROR: " + err);
       }
@@ -42,8 +48,12 @@ module.exports = {
     await compare.compareRegScreenShots(baseNewName, regImage, config);
 
     await fs.rename(
-      "regression-images/" + projectname + "/" + regImage,
-      "regression-images/" + projectname + "/" + projectname + "-base.png",
+      "client/public/regression-projects/" + projectname + "/" + regImage,
+      "client/public/regression-projects/" +
+        projectname +
+        "/" +
+        projectname +
+        "-base.png",
       function(err) {
         if (err) console.log("ERROR: " + err);
       }

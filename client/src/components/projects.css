@@ -12,6 +12,7 @@ li {
 }
 li a {
   color: #777;
+  cursor: pointer;
 }
 
 input {
@@ -22,9 +23,15 @@ input {
 }
 
 button {
-  background-color: #00d8ff;
+  background-color: #15aabf;
   border: none;
   border-radius: 4px !important;
   height: 28px;
   color: white;
+}
+#projects {
+  padding: 20px;
+  float: left;
+  min-height: 75vh;
+  border-right: 1px dashed #777;
 }

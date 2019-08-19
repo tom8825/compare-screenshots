@@ -1,81 +1,83 @@
-const puppeteer = require('puppeteer');
-const uuidv4 = require('uuid/v4');
-const fs = require('fs');
+const puppeteer = require("puppeteer");
+const uuidv4 = require("uuid/v4");
+const fs = require("fs");
 
 //can these functions be added to screenshot.js?
 
 module.exports = {
-    takeRegScreenShot: async function (config) {
-        let url = config[1];
-        let vp_width = 1920;
-        let vp_height = 1080;
-        let fileName = config[0] + '-' + uuidv4() + '.png';
+  takeRegScreenShot: async function(config) {
+    let url = config[1];
+    let vp_width = 1920;
+    let vp_height = 1080;
+    let fileName = config[0] + "-" + uuidv4() + ".png";
 
-        console.log("Taking screenshot...")
+    console.log("Taking screenshot...");
 
-        // 1. Launch the browser
-        const browser = await puppeteer.launch({
-            defaultViewport: {
-                width: vp_width,
-                height: vp_height,
-                isLandscape: true
-            }
-        });
+    // 1. Launch the browser
+    const browser = await puppeteer.launch({
+      defaultViewport: {
+        width: vp_width,
+        height: vp_height,
+        isLandscape: true
+      }
+    });
 
-        // 2. Open a new page
-        const page = await browser.newPage();
+    // 2. Open a new page
+    const page = await browser.newPage();
 
-        // 3. Navigate to URL
-        await page.goto(url);
+    // 3. Navigate to URL
+    await page.goto(url);
 
-        // 4. Take screenshot
-        
-        await page.screenshot({ path: 'regression-images/' + config[0] + "/" + fileName });
+    // 4. Take screenshot
 
-        await browser.close();
+    await page.screenshot({
+      path: "client/public/regression-projects/" + config[0] + "/" + fileName
+    });
 
-        // 5. Log result
-        
-        console.log("Screenshot taken for URL: " + config[1]);
+    await browser.close();
 
+    // 5. Log result
 
-        return fileName;
-    },
+    console.log("Screenshot taken for URL: " + config[1]);
 
-    takeBaseScreenShot: async function (config) {
-        let url = config[1];
-        let vp_width = 1920;
-        let vp_height = 1080;
-        let fileName = config[0] + '-base.png';
+    return fileName;
+  },
 
-        console.log("Taking screenshot...")
+  takeBaseScreenShot: async function(config) {
+    let url = config[1];
+    let vp_width = 1920;
+    let vp_height = 1080;
+    let fileName = config[0] + "-base.png";
 
-        // 1. Launch the browser
-        const browser = await puppeteer.launch({
-            defaultViewport: {
-                width: vp_width,
-                height: vp_height,
-                isLandscape: true
-            }
-        });
+    console.log("Taking screenshot...");
 
-        // 2. Open a new page
-        const page = await browser.newPage();
+    // 1. Launch the browser
+    const browser = await puppeteer.launch({
+      defaultViewport: {
+        width: vp_width,
+        height: vp_height,
+        isLandscape: true
+      }
+    });
 
-        // 3. Navigate to URL
-        await page.goto(url);
+    // 2. Open a new page
+    const page = await browser.newPage();
 
-        // 4. Take screenshot
-        
-        await page.screenshot({ path: 'regression-images/' + config[0] + "/" + fileName });
+    // 3. Navigate to URL
+    await page.goto(url);
 
-        await browser.close();
+    // 4. Take screenshot
 
-        // 5. Log result
-        
-        console.log("Screenshot taken for URL: " + config[1]);
+    await page.screenshot({
+      path: "client/public/regression-projects/" + config[0] + "/" + fileName
+    });
 
+    await browser.close();
 
-        return fileName;
-    }
+    // 5. Log result
+
+    console.log("Screenshot taken for URL: " + config[1]);
+
+    return fileName;
+  }
 };
