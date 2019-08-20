@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import "./project-info.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-class ProjectInfo extends Component {
+class Gallery extends Component {
   constructor() {
     super();
     this.state = {
-      currentProject: "",
-      baseImagePath: ""
+      currentProject: ""
     };
   }
 
@@ -31,4 +30,4 @@ class ProjectInfo extends Component {
   }
 }
 
-export default ProjectInfo;
+export default Gallery;
