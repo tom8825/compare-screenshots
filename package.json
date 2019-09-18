@@ -2,20 +2,13 @@
   "name": "ss-compare",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "sample_test.js",
   "scripts": {
-    "client-install": "cd client && npm install",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "concurrently": "^4.1.1",
-    "express": "^4.17.1",
     "inquirer": "^6.5.0",
     "mkdirp": "^0.5.1",
     "pixelmatch": "^5.0.2",
@@ -25,7 +18,6 @@
     "webpage": "^0.3.0"
   },
   "devDependencies": {
-    "blink-diff": "^1.0.13",
-    "nodemon": "^1.19.1"
+    "blink-diff": "^1.0.13"
   }
 }
